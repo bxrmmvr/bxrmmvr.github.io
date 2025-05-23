@@ -84,6 +84,37 @@ function type() {
     }
 }
 
+
+/*===== THANK YOU POP=UP =====*/
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    fetch("https://formsubmit.co/bom_ones@hotmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+            Accept: "application/json",
+        },
+    })
+        .then((response) => {
+            if (response.ok) {
+                this.reset();
+                document.getElementById("thankyou-popup").style.display = "block";
+
+                // ซ่อน popup อัตโนมัติหลัง 5 วินาที (optional)
+                setTimeout(() => {
+                    document.getElementById("thankyou-popup").style.display = "none";
+                }, 5000);
+            } else {
+                alert("There was an error. Please try again.");
+            }
+        })
+        .catch((error) => {
+            alert("Error: " + error);
+        });
+});
+
 // เรียกฟังก์ชันทันที
 type();
 
