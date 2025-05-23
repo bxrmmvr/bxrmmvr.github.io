@@ -91,7 +91,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
     const formData = new FormData(this);
 
-    fetch("https://formsubmit.co/bom_ones@hotmail.com", {
+    fetch("https://formsubmit.co/eventszgamelist@gmail.com", {
         method: "POST",
         body: formData,
         headers: {
